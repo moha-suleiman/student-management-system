@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  /* Two-column container */
+  .availability-section {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px 5%;
+    gap: 40px;
+    background: #f9f9f9;
+    flex-wrap: wrap;
+
+  }
+
+  /* Left: Search */
+  .left-column {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+  }
+
+  .search-box,
+  .booking-popup {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+
+  .search-box h2,
+  .booking-popup h3 {
+    text-align: center;
+    color: #004d40;
+    margin-bottom: 20px;
+  }
+
+  .search-box input,
+  .search-box button,
+  .booking-popup input,
+  .booking-popup button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  .search-box button,
+  .booking-popup button {
+    background: #00796b;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .search-box button:hover,
+  .booking-popup button:hover {
+    background: #004d40;
+  }
+
+  .search-result {
+    background: #fffbe6;
+    border-left: 5px solid #ff9800;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 6px;
+  }
+
+  #bookNowBtn {
+  display: inline-block;
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  }
+
+  #bookNowBtn:hover {
+  background: #e65100;
+  }
+
+  /* Right: Guest House Features */
+  .right-column {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+  }
+
+  .description-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+
+  .description-box h2 {
+    color: #004d40;
+    margin-bottom: 20px;
+  }
+
+  .description-box ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .description-box li {
+    margin-bottom: 12px;
+  }
+
+  /* Mobile responsive */
+  @media screen and (max-width: 768px) {
+    .availability-section {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .left-column,
+    .right-column {
+      max-width: 100%;
+    }
+
+  </style>
+
+  <title>Urji Guest House - Minjila</title>
+ </head>
+
+<body>
+<section class="availability-section">
+  <!-- LEFT SIDE -->
+  <div class="left-column">
+    <div class="search-box">
+      <h2>Search for Available Room</h2>
+      <form id="searchForm">
+        <input type="date" id="checkin" name="checkin" required>
+        <input type="date" id="checkout" name="checkout" required>
+        <input type="number" id="adults" name="adults" placeholder="Number of Adults" required>
+        <button type="submit">Check Availability</button>
+      </form>
+
+      <div class="search-result" id="searchResult" style="display: none;">
+        <p id="availabilityMessage"></p>
+        <button id="bookNowBtn" style="display: none;">Book Now</button>
+      </div>
+
+      <div class="booking-popup" id="bookingForm" style="display: none;">
+        <h3>Confirm Booking</h3>
+        <form action="/book" method="POST">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="text" name="idnumber" placeholder="ID Number" required>
+          <button type="submit">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="right-column">
+    <div class="description-box">
+      <h2>Why Stay at Urji Guest House?</h2>
+      <ul>
+        <li>✅ Clean, spacious rooms with modern beds</li>
+        <li>✅ Air conditioning & hot water showers</li>
+        <li>✅ Delicious food — both local & international</li>
+        <li>✅ 24/7 security & safe parking</li>
+        <li>✅ Located at the Minjila Junction — Mombasa, Garissa, Lamu</li>
+        <li>✅ Friendly, multilingual staff</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
+
